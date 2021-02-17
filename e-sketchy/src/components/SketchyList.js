@@ -8,7 +8,7 @@ function SketchyList({ catFilter, priceFilter }) {
     .filter((sketchy) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
     .map((sketchy) => (
       <li key={sketchy.id} className="card">
-        <img src={sketchy.pic_url} />
+        <img className="product-img" src={sketchy.pic_url} />
         <h3>{sketchy.name}</h3>
         <h5>{sketchy.dec}</h5>
         <div>${sketchy.price}</div>

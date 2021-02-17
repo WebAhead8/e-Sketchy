@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg-color: #314e52;
+  --txt-color: #f2a154;
+  --text-light: #f7f6e7;
+  --text-d: #e7e6e1;
+}
+.logo {
+  font-family: "Pristina";
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--txt-color);
+  font-weight: bold;
+}
+.e-logo {
+  color: #e7e6e1;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--bg-color);
+  color: var(--text-light);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.nav-links {
+  list-style-type: none;
+  font-size: 20px;
+}
+.nav-links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+.nav-links li a {
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  color: var(--text-light);
+  padding: 8px;
+  border-radius: 5px;
+}
+.nav-links li a:hover {
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+}
+.cart-btn {
+  cursor: pointer;
+  padding: 9px 25px;
+}
+.cart-icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 5px;
+}
+.cart-icon:hover {
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+}
