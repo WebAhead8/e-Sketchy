@@ -6,10 +6,11 @@ import SketchyList from "./components/SketchyList";
 
 function App() {
   const [catFilter, setCatFilter] = React.useState("all");
-  const [priceFilter, setPriceFilter] = React.useState([0.5, 9]);
+  const [priceFilter, setPriceFilter] = React.useState([9.99, 99.99]);
   return (
     <main>
       <section className="filters">
+        <h1>e-Sketchy</h1>
         <h2>Filters</h2>
         <form>
           <PriceFilter
@@ -21,7 +22,7 @@ function App() {
       </section>
       <section className="sketches">
         <h2>sketches</h2>
-        <DishList catFilter={catFilter} priceFilter={priceFilter} />
+        <SketchyList catFilter={catFilter} priceFilter={priceFilter} />
       </section>
     </main>
   );

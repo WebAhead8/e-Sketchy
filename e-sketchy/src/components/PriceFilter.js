@@ -9,8 +9,8 @@ function PriceFilter({ priceFilter, setPriceFilter }) {
         <input
           type="range"
           id="min-price"
-          min="0.5"
-          max="9"
+          min="9.99"
+          max="99.99"
           step="0.25"
           value={priceFilter[0]}
           onChange={(e) => setPriceFilter([e.target.value, priceFilter[1]])}
@@ -21,8 +21,8 @@ function PriceFilter({ priceFilter, setPriceFilter }) {
         <input
           type="range"
           id="max-price"
-          min="0.5"
-          max="9"
+          min="9.99"
+          max="99.99"
           step="0.25"
           value={priceFilter[1]}
           onChange={(e) => setPriceFilter([priceFilter[0], e.target.value])}

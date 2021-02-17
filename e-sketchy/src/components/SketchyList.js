@@ -5,12 +5,14 @@ function SketchyList({ catFilter, priceFilter }) {
   const [minPrice, maxPrice] = priceFilter;
   const sketchyItems = sketches
     .filter((sketchy) => catFilter === "all" || catFilter === sketchy.category)
-    .filter((dish) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
+    .filter((sketchy) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
     .map((sketchy) => (
       <li key={sketchy.id} className="card">
-        <img src={sketchy.imgUrl} />
+        <img src={sketchy.pic_url} />
         <h3>{sketchy.name}</h3>
-        <div>£{sketchy.price.toFixed(2)}</div>
+        <h5>{sketchy.dec}</h5>
+        <div>${sketchy.price}</div>
+        <button>Add to cart</button>
       </li>
     ));
   return (
@@ -24,4 +26,4 @@ function SketchyList({ catFilter, priceFilter }) {
   );
 }
 
-export default DishList;
+export default SketchyList;
