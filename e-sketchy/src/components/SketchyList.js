@@ -1,0 +1,32 @@
+import React from "react";
+import sketches from "../data";
+
+function SketchyList({ setTotalPrice, catFilter, priceFilter }) {
+  const [minPrice, maxPrice] = priceFilter;
+  const sketchyItems = sketches
+    .filter((sketchy) => catFilter === "all" || catFilter === sketchy.category)
+    .filter((sketchy) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
+    .map((sketchy) => (
+      <li key={sketchy.id} className="card">
+        <img src={sketchy.pic_url} />
+        <h3>{sketchy.name}</h3>
+        <h5>{sketchy.dec}</h5>
+        <div>${sketchy.price}</div>
+        <button onClick={() => TotalPrice(sketchy.price)}>Add to cart</button>
+      </li>
+    ));
+  function TotalPrice(sketchy) {
+    setTotalPrice((prevState) => (prevState += sketchy));
+  }
+  return (
+    <ul className="grid">
+      {sketchyItems.length ? (
+        sketchyItems
+      ) : (
+        <li className="card">No results found</li>
+      )}
+    </ul>
+  );
+}
+
+export default SketchyList;

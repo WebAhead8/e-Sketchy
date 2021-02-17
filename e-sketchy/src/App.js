@@ -1,10 +1,29 @@
 import "./App.css";
+import React from "react";
+import CategoryFilter from "./components/CategoryFilter.js";
+import PriceFilter from "./components/PriceFilter";
+import SketchyList from "./components/SketchyList";
+import Cart from "./components/Cart";
 
 function App() {
+  const [catFilter, setCatFilter] = React.useState("all");
+  const [priceFilter, setPriceFilter] = React.useState([9.99, 99.99]);
+  const [totalPrice, setTotalPrice] = React.useState(0);
   return (
-    <div className="App">
-      <h1> Hello World </h1>
-    </div>
+    <main>
+      <section className="sketches">
+        <h2>sketches</h2>
+        <Cart totalPrice={totalPrice} />
+      </section>
+      <section className="sketches">
+        <h2>sketches</h2>
+        <SketchyList
+          setTotalPrice={setTotalPrice}
+          catFilter={catFilter}
+          priceFilter={priceFilter}
+        />
+      </section>
+    </main>
   );
 }
 
