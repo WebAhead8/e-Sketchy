@@ -1,8 +1,16 @@
 import React from "react";
 import sketches from "../data";
 
-function SketchyList({ catFilter, priceFilter }) {
+function SketchyList({
+  setArray,
+
+  setTotalPrice,
+  catFilter,
+  priceFilter,
+  item = 0,
+}) {
   const [minPrice, maxPrice] = priceFilter;
+
   const sketchyItems = sketches
     .filter((sketchy) => catFilter === "all" || catFilter === sketchy.category)
     .filter((sketchy) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
@@ -12,9 +20,16 @@ function SketchyList({ catFilter, priceFilter }) {
         <h3>{sketchy.name}</h3>
         <h5>{sketchy.dec}</h5>
         <div>${sketchy.price}</div>
-        <button>Add to cart</button>
+        <button onClick={() => TotalPrice(sketchy.price)}>Add to cart</button>
       </li>
     ));
+  function TotalPrice(sketchy) {
+    setTotalPrice((prevState) => (prevState += sketchy));
+
+    setArray((prevState) => {
+      return prevState.concat("+ $" + sketchy + "   ");
+    });
+  }
   return (
     <ul className="grid">
       {sketchyItems.length ? (
