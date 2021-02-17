@@ -1,108 +1,108 @@
 const data = [
   {
-    id: 000001,
+    id: 1,
     name: "Ruby Rose",
-    pic_url: "./pictures/Rubyrose.jpg",
+    pic_url: "/pictures/Rubyrose.jpg",
     dec: "Australin Actor",
-    price: "$29.99",
+    price: 29.99,
     category: "portrait",
   },
   {
-    id: 000002,
+    id: 2,
     name: "Blue Alex",
-    pic_url: "./pictures/Alex.jpg",
+    pic_url: "/pictures/Alex.jpg",
     dec: "Lost in the music",
-    price: "$29.99",
+    price: 29.99,
     category: "anime",
   },
   {
-    id: 000003,
+    id: 3,
     name: "Purple Alex",
-    pic_url: "./pictures/AlexAgain.jpg",
+    pic_url: "/pictures/AlexAgain.jpg",
     dec: "Lost in the music",
-    price: "$29.99",
+    price: 29.99,
     category: "anime",
   },
   {
-    id: 000004,
+    id: 4,
     name: "Bassam",
-    pic_url: "./pictures/Bassam.jpg",
+    pic_url: "/pictures/Bassam.jpg",
     dec: "Request from client",
-    price: "$19.99",
+    price: 19.99,
     category: "portrait",
   },
   {
-    id: 000005,
+    id: 5,
     name: "Bess",
-    pic_url: "./pictures/Bess.jpg",
+    pic_url: "/pictures/Bess.jpg",
     dec: "Request from client",
-    price: "$19.99",
+    price: 19.99,
     category: "portrait",
   },
   {
-    id: 000006,
+    id: 6,
     name: "Cascina",
-    pic_url: "./pictures/Cascina.jpg",
+    pic_url: "/pictures/Cascina.jpg",
     dec: "Request from client",
-    price: "$19.99",
+    price: 19.99,
     category: "portrait",
   },
   {
-    id: 000007,
+    id: 7,
     name: "Daynah",
-    pic_url: "./pictures/Daynah.jpg",
+    pic_url: "/pictures/Daynah.jpg",
     dec: "Request from client",
-    price: "$29.99",
+    price: 29.99,
     category: "portrait",
   },
   {
-    id: 005007,
+    id: 5007,
     name: "Dua Lipa",
-    pic_url: "./pictures/Dualipa.jpg",
+    pic_url: "/pictures/Dualipa.jpg",
     dec: "Singer & Songwriter",
-    price: "$29.99",
+    price: 29.99,
     category: "portrait",
   },
   {
-    id: 0055007,
+    id: 55007,
     name: "Lindsey",
-    pic_url: "./pictures/Lindsey.jpg",
+    pic_url: "/pictures/Lindsey.jpg",
     dec: "Anime portrait",
-    price: "$29.99",
+    price: 29.99,
     category: "anime",
   },
   {
-    id: 0055607,
+    id: 55607,
     name: "Saule",
-    pic_url: "./pictures/Saule.jpg",
+    pic_url: "/pictures/Saule.jpg",
     dec: "Request from client",
-    price: "$29.99",
+    price: 29.99,
     category: "portrait",
   },
   {
-    id: 0155607,
+    id: 155607,
     name: "Samantha",
-    pic_url: "./pictures/Samantha.jpg",
+    pic_url: "/pictures/Samantha.jpg",
     dec: "Request from client",
-    price: "$29.99",
+    price: 29.99,
     category: "portrait",
   },
   {
-    id: 0155637,
+    id: 155637,
     name: "Drawing Paint Brush",
     pic_url:
       "https://5.imimg.com/data5/WY/YU/MY-13876579/drawing-brush-500x500.jpg",
     dec: "6 Drawing Paint Brush",
-    price: "$12.99",
+    price: 12.99,
     category: "brushes",
   },
   {
-    id: 0165607,
+    id: 165607,
     name: "Drawing Paint Brushes",
     pic_url:
       "https://images-na.ssl-images-amazon.com/images/I/61ClMLNOv0L._SL1001_.jpg",
     dec: "13 Drawing Paint Brush",
-    price: "$19.99",
+    price: 19.99,
     category: "brushes",
   },
   {
@@ -111,7 +111,7 @@ const data = [
     pic_url:
       "https://i5.walmartimages.com/asr/53eb6892-d382-4cb0-ac00-c7323aaa49b9.5abf31a4f228e9d781605f0c367f9c8a.jpeg",
     dec: "15 Drawing Paint Brush",
-    price: "$29.99",
+    price: 29.99,
     category: "brushes",
   },
   {
@@ -120,7 +120,7 @@ const data = [
     pic_url:
       "https://images-na.ssl-images-amazon.com/images/I/91bvXSjXYaL._AC_SL1500_.jpg",
     dec: "8.5x11 Double-Sided Hardbound Sketchbook",
-    price: "$29.99",
+    price: 29.99,
     category: "sketchbook",
   },
   {
@@ -129,7 +129,7 @@ const data = [
     pic_url:
       "https://target.scene7.com/is/image/Target/GUEST_f465293e-7666-44d0-85e6-086da74875cd?wid=488&hei=488&fmt=pjpeg",
     dec: "Blank 8.5x11 Black-Piccedilly",
-    price: "$29.99",
+    price: 29.99,
     category: "sketchbook",
   },
   {
@@ -138,7 +138,7 @@ const data = [
     pic_url:
       "http://prodimage.images-bn.com/pimages/0067103694932_p0_v1_s1200x630.jpg",
     dec: "Space Sketch Book",
-    price: "$29.99",
+    price: 29.99,
     category: "sketchbook",
   },
   {
@@ -147,7 +147,7 @@ const data = [
     pic_url:
       "https://images-na.ssl-images-amazon.com/images/I/81GjrpUbmfL._AC_SL1500_.jpg",
     dec: "Sketching Set Gray Tones",
-    price: "$19.99",
+    price: 19.99,
     category: "pens",
   },
   {
@@ -156,7 +156,7 @@ const data = [
     pic_url:
       "https://i5.walmartimages.com/asr/83f1661e-6d04-46f2-b364-680398cbf96c_2.b61958885225513e44373778c19ed5fa.jpeg",
     dec: "Sharpie Assorted Fine Point Drawing 12 pieces",
-    price: "$29.99",
+    price: 29.99,
     category: "pens",
   },
   {
@@ -165,7 +165,7 @@ const data = [
     pic_url:
       "https://www.cultpens.com/imgs/products/cp/950_constW/UN50212~Uni-PIN-Drawing-Pen-Black-Pack-of-5-Assorted-Sizes_DTL1_P1.jpg",
     dec: "Uni Pin Drawing Pen Set of 5",
-    price: "$9.99",
+    price: 9.99,
     category: "pens",
   },
   {
@@ -174,7 +174,7 @@ const data = [
     pic_url:
       "https://images-na.ssl-images-amazon.com/images/I/51yUx-wAO5L._SL1500_.jpg",
     dec: "XP Pen Star03 V2 Graphics Drawing Tablet",
-    price: "$99.99",
+    price: 99.99,
     category: "tablets",
   },
   {
@@ -183,7 +183,7 @@ const data = [
     pic_url:
       "https://images-na.ssl-images-amazon.com/images/I/61YJScBQ6aL._SL1500_.jpg",
     dec: "XP Pen Star03 V2 Graphics Drawing Tablet",
-    price: "$99.99",
+    price: 99.99,
     category: "tablets",
   },
   {
@@ -192,7 +192,9 @@ const data = [
     pic_url:
       "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/W/G/151456_1566390860.jpg",
     dec: "Deco 02 Graphics Drawing Tablet",
-    price: "$99.99",
+    price: 99.99,
     category: "tablets",
   },
 ];
+
+export default data;
