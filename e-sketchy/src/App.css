@@ -29,6 +29,14 @@
 }
 img{width:200px;
 height:200px}
+.cartdiv{
+  background: rgba(76, 175, 80, 0.6);
+  position: absolute;
+  height:50%;
+  width:20%;
+  font-weight: bold;
+  
+}
 
 @keyframes App-logo-spin {
   from {
