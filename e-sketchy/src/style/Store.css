@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 5px 10px 10px var(--bg-color);
 }
 .product h3 {
   color: var(--bg-color);
@@ -33,7 +34,7 @@
 }
 .sketches ul {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   grid-gap: 8px;
   list-style: none;
 }
