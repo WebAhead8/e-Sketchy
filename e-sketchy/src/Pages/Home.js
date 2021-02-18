@@ -1,6 +1,7 @@
 import React from "react";
 import Slideshow from "../components/slideshow";
 import HomeSections from "../components/HomeSections";
+import CheckoutForm from "../components/CheckoutForm";
 
 function Home() {
   return (

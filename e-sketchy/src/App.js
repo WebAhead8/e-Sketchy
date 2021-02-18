@@ -5,6 +5,7 @@ import Store from "./components/Store";
 import AboutPage from "./components/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CheckoutForm from "./components/CheckoutForm";
 import Home from "./Pages/Home";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" exact component={Home} />
       <Route path="/about" exact component={AboutPage} />
       <Route path="/store" exact component={Store} />
+      <Route path="/checkout" exact component={CheckoutForm} />
       <Footer />
     </Router>
   );
