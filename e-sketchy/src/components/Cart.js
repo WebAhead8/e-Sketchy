@@ -29,10 +29,15 @@ function Cart({ totalPrice, array }) {
           <div>
             <i>Items In Your Cart </i>
             <br />
-            {/* {array.map((item) => {
-              <h7>{item}</h7>;
-            })} */}
-            {array}
+            {array.map((item) => {
+              return (
+                <div>
+                  <br />
+                  <h3>{item}</h3>
+                </div>
+              );
+            })}
+            {/* {array} */}
             <br />
             <span className="total">Total Price :${totalPrice.toFixed(2)}</span>
             <a href="checkout">Proceed to checkout</a>
