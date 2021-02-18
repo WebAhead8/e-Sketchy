@@ -37,11 +37,25 @@
   grid-gap: 8px;
   list-style: none;
 }
-.cart-icon button,
+
 .sketches button {
   background-color: var(--bg-color);
   color: var(--txt-color);
   padding: 10px 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: all 0.3s ease 0s;
+  border: none;
+  margin: 5px;
+}
+.cart-icon button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  padding: 10px 55px;
   font-weight: bold;
   margin-top: 10px;
   transition: all 0.3s ease 0s;
@@ -63,6 +77,9 @@
   color: var(--txt-color);
   height: auto;
 }
+.cartdiv > * {
+  padding: 10px;
+}
 .cartdiv i {
   font-size: 30px;
   text-decoration: underline;
@@ -77,11 +94,17 @@
   padding: 10px 75px;
   font-weight: bold;
   width: 100%;
-  position: absolute;
   bottom: 0;
   transition: all 0.3s ease 0s;
 }
 .cartdiv a:hover {
   cursor: pointer;
   color: var(--text-d);
+}
+.total {
+  font-size: 25px;
+}
+.cartico {
+  width: 40px;
+  height: 40px;
 }

@@ -18,15 +18,25 @@ function Cart({ totalPrice, array }) {
 
   return (
     <div className="cart-icon">
-      <button onClick={() => setToggle(!toggle)}>Cart</button>
+      <button onClick={() => setToggle(!toggle)}>
+        <img
+          src="https://images.vexels.com/media/users/3/200097/isolated/preview/942820836246f08c2d6be20a45a84139-shopping-cart-icon-shopping-cart-by-vexels.png"
+          className="cartico"
+        />
+      </button>
       {toggle && (
         <div className="cartdiv">
-          <i>Items In Your Cart </i>
-          <br />
-          {array}
-          <br />$ Total Price :{totalPrice.toFixed(2)}
-          <br />
-          <a href="checkout">Proceed to checkout</a>
+          <div>
+            <i>Items In Your Cart </i>
+            <br />
+            {/* {array.map((item) => {
+              <h7>{item}</h7>;
+            })} */}
+            {array}
+            <br />
+            <span className="total">Total Price :${totalPrice.toFixed(2)}</span>
+            <a href="checkout">Proceed to checkout</a>
+          </div>
         </div>
       )}
     </div>
