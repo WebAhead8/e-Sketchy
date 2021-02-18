@@ -1,0 +1,72 @@
+:root {
+  --bg-color: #314e52;
+  --txt-color: #f2a154;
+  --text-light: #f7f6e7;
+  --text-d: #e7e6e1;
+}
+body {
+  width: 100%;
+}
+/* section {
+  display: flex;
+  justify-content: center;
+} */
+section.slideshow {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+section.slideshow div.slide-holder {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+section.slideshow section.current-slide {
+  width: 400px;
+  height: 300px;
+  margin: auto 10px;
+}
+section.slideshow section.previous-slide,
+section.slideshow section.next-slide {
+  width: 200px;
+  height: 150px;
+}
+section.slideshow section.slide div.slide-thumbnail {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  box-shadow: 5px 5px 6px var(--bg-color);
+}
+
+section.slideshow div.slideshow-controller {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.slideshow div.slideshow-controller span {
+  padding: 10px;
+  width: 100px;
+  border: none;
+  background: var(--bg-color);
+  color: var(--text-light);
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 3px 3px 5px var(--bg-color);
+  user-select: none;
+}
+section.slideshow div.slideshow-controller span:hover {
+  color: var(--txt-color);
+  text-shadow: 3px 3px 5px var(--txt-color);
+}
+section.slideshow div.slideshow-controller span:active {
+  color: var(--bg-color);
+  text-shadow: 3px 3px 5px var(--bg-color);
+  background: var(--txt-color);
+}

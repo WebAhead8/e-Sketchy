@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #314e52;
+  --txt-color: #f2a154;
+  --text-light: #f7f6e7;
+  --text-d: #e7e6e1;
+}
+
+footer {
+  background-color: var(--bg-color);
+  text-align: center;
+  color: var(--text-light);
+  font-size: 20px;
+  bottom: 0;
+  width: 100%;
+  padding: 25px;
+}
+footer small {
+  padding: 10px;
+}

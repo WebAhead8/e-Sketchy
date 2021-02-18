@@ -1,0 +1,61 @@
+:root {
+  --bg-color: #314e52;
+  --txt-color: #f2a154;
+  --text-light: #f7f6e7;
+  --text-d: #e7e6e1;
+}
+
+.product {
+  margin: 5px;
+  background-color: var(--text-d);
+  border: #314e52 3px solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product h3 {
+  color: var(--bg-color);
+}
+.product img {
+  width: 250px;
+  height: 300px;
+}
+.sketches h2 {
+  text-align: center;
+  color: var(--bg-color);
+  font-size: 40px;
+  margin: 15px;
+}
+.sketches ul {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 8px;
+  list-style: none;
+}
+.cart-icon button,
+.sketches button {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  padding: 10px 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: all 0.3s ease 0s;
+  border: none;
+  margin: 5px;
+}
+.cart-icon button:hover,
+.sketches button:hover {
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+  cursor: pointer;
+}
+.cartdiv {
+  background-color: rgba(49, 78, 82, 0.8);
+  color: var(--txt-color);
+}
+.cartdiv i {
+  font-size: 30px;
+  text-decoration: underline;
+  margin: 15px;
+}
