@@ -2,6 +2,8 @@ import React from "react";
 import SketchyList from "./SketchyList";
 import Cart from "./Cart";
 import "../style/Store.css";
+import CategoryFilter from "./CategoryFilter";
+import PriceFilter from "./PriceFilter";
 
 function Store() {
   const [catFilter, setCatFilter] = React.useState("all");
@@ -10,6 +12,16 @@ function Store() {
   const [array, setArray] = React.useState([]);
   return (
     <main>
+      <section>
+        <h2>Filters</h2>
+        <form>
+          <PriceFilter
+            priceFilter={priceFilter}
+            setPriceFilter={setPriceFilter}
+          />
+          <CategoryFilter catFilter={catFilter} setCatFilter={setCatFilter} />
+        </form>
+      </section>
       <section className="cart-icon">
         <Cart totalPrice={totalPrice} array={array} />
       </section>

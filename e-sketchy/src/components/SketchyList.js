@@ -21,15 +21,17 @@ function SketchyList({
           <h3>{sketchy.name}</h3>
           <h5>{sketchy.dec}</h5>
           <div>${sketchy.price}</div>
-          <button onClick={() => TotalPrice(sketchy.price)}>Add to cart</button>
+          <button onClick={() => TotalPrice(sketchy.price, sketchy.name)}>
+            Add to cart
+          </button>
         </li>
       </div>
     ));
-  function TotalPrice(sketchy) {
-    setTotalPrice((prevState) => (prevState += sketchy));
+  function TotalPrice(sketchyPrice, sketchyName) {
+    setTotalPrice((prevState) => (prevState += sketchyPrice));
 
     setArray((prevState) => {
-      return prevState.concat("+ $" + sketchy + "   ");
+      return prevState.concat([sketchyName + ": $" + sketchyPrice + "   "]);
     });
   }
   return (
