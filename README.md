@@ -13,6 +13,8 @@ Digital & Traditional Art E-Commerce Store. All what the artist need in one plac
 | Bushra Shwiki | Haneen Awad | May Darawshi | Khaled Badarna |
 | -------- | -------- | -------- |-------- |
 
+# Notes
+* The App is not responsive YET
 # Tasks
 
 - [ ] Data Array
