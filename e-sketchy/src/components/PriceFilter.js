@@ -2,11 +2,12 @@ import React from "react";
 
 function PriceFilter({ priceFilter, setPriceFilter }) {
   return (
-    <fieldset>
+    <fieldset className="price">
       <legend>Price</legend>
       <label htmlFor="min-price">
         Min price
         <input
+          className="price-bar"
           type="range"
           id="min-price"
           min="9.99"
@@ -19,6 +20,7 @@ function PriceFilter({ priceFilter, setPriceFilter }) {
       <label htmlFor="max-price">
         Max price
         <input
+          className="price-bar"
           type="range"
           id="max-price"
           min="9.99"

@@ -12,9 +12,8 @@ function Store() {
   const [array, setArray] = React.useState([]);
   return (
     <main>
-      <section>
-        <h2>Filters</h2>
-        <form>
+      <section className="filters-sec">
+        <form className="filters">
           <PriceFilter
             priceFilter={priceFilter}
             setPriceFilter={setPriceFilter}

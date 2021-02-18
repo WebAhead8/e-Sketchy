@@ -4,7 +4,11 @@
   --text-light: #f7f6e7;
   --text-d: #e7e6e1;
 }
-
+.filters {
+  background-color: var(--text-d);
+  color: var(--bg-color);
+  font-size: 30px;
+}
 .product {
   margin: 5px;
   background-color: var(--text-d);
@@ -51,11 +55,33 @@
   cursor: pointer;
 }
 .cartdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: rgba(49, 78, 82, 0.8);
   color: var(--txt-color);
+  height: auto;
 }
 .cartdiv i {
   font-size: 30px;
   text-decoration: underline;
   margin: 15px;
+}
+.cartdiv a {
+  display: flex;
+  justify-self: center;
+  text-decoration: none;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  padding: 10px 75px;
+  font-weight: bold;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: all 0.3s ease 0s;
+}
+.cartdiv a:hover {
+  cursor: pointer;
+  color: var(--text-d);
 }

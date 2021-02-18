@@ -1,7 +1,7 @@
 import React from "react";
 import sketches from "../data";
 import "../style/Store.css";
-
+import "../style/Filters.css";
 function SketchyList({
   setArray,
   setTotalPrice,

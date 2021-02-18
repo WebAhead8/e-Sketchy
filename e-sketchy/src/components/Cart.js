@@ -21,17 +21,12 @@ function Cart({ totalPrice, array }) {
       <button onClick={() => setToggle(!toggle)}>Cart</button>
       {toggle && (
         <div className="cartdiv">
-          <div>
-            <i>Items In Your Cart </i>
-            <br />
-            {/* {array.map((item) => {
-              <h7>{item}</h7>;
-            })} */}
-            {array}
-            <br />$ Total Price :{totalPrice.toFixed(2)}
-            <br />
-            <a href="checkout">Proceed to checkout</a>
-          </div>
+          <i>Items In Your Cart </i>
+          <br />
+          {array}
+          <br />$ Total Price :{totalPrice.toFixed(2)}
+          <br />
+          <a href="checkout">Proceed to checkout</a>
         </div>
       )}
     </div>

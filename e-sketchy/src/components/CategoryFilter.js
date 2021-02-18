@@ -1,4 +1,5 @@
 import React from "react";
+import "../style/Filters.css";
 
 const categories = [
   "all",
@@ -12,11 +13,10 @@ const categories = [
 
 function CategoryFilter({ catFilter, setCatFilter }) {
   return (
-    <fieldset>
+    <fieldset className="filter">
       <legend>Category</legend>
       {categories.map((cat) => (
         <label htmlFor={cat} key={cat}>
-          {cat}
           <input
             type="radio"
             name="categories"
@@ -25,6 +25,7 @@ function CategoryFilter({ catFilter, setCatFilter }) {
             checked={cat === catFilter}
             onChange={(e) => setCatFilter(e.target.value)}
           />
+          {cat}
         </label>
       ))}
     </fieldset>
