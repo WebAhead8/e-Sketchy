@@ -7,7 +7,8 @@ function SketchyList({
   setTotalPrice,
   catFilter,
   priceFilter,
-  item = 0,
+  array,
+  totalPrice,
 }) {
   const [minPrice, maxPrice] = priceFilter;
 
@@ -21,12 +22,26 @@ function SketchyList({
           <h3>{sketchy.name}</h3>
           <h5>{sketchy.dec}</h5>
           <div>${sketchy.price}</div>
-          <button onClick={() => TotalPrice(sketchy.price, sketchy.name)}>
+          <button
+            onClick={() => {
+              TotalPrice(sketchy.price, sketchy.name);
+              addItemToCart();
+            }}
+          >
             Add to cart
           </button>
         </li>
       </div>
     ));
+  function addItemToCart() {
+    localStorage.setItem(
+      "addToCart",
+      JSON.stringify({
+        arrayOfPrices: array,
+        totalPrice: totalPrice,
+      })
+    );
+  }
   function TotalPrice(sketchyPrice, sketchyName) {
     setTotalPrice((prevState) => (prevState += sketchyPrice));
 

@@ -9,7 +9,11 @@ function Store() {
   const [catFilter, setCatFilter] = React.useState("all");
   const [priceFilter, setPriceFilter] = React.useState([9.99, 99.99]);
   const [totalPrice, setTotalPrice] = React.useState(0);
-  const [array, setArray] = React.useState([]);
+  console.log(JSON.parse(localStorage.getItem("addToCart")));
+  const [array, setArray] = React.useState(
+    JSON.parse(localStorage.getItem("addToCart")).arrayOfPrices || []
+  );
+
   return (
     <main>
       <section className="filters-sec">
@@ -32,6 +36,7 @@ function Store() {
           setTotalPrice={setTotalPrice}
           catFilter={catFilter}
           priceFilter={priceFilter}
+          totalPrice={totalPrice}
         />
       </section>
     </main>
