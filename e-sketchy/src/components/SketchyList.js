@@ -16,6 +16,15 @@ function SketchyList({
   const [prodData, setProdData] = React.useState(null);
 
   React.useEffect(() => {
+    localStorage.setItem(
+      "addToCart",
+      JSON.stringify({
+        arrayOfPrices: array,
+        totalPrice: totalPrice,
+      })
+    );
+  }, [array, totalPrice]);
+  React.useEffect(() => {
     const url = `http://localhost:4000/products`;
     getData(url).then((data) => {
       setProdData(data);
@@ -32,13 +41,12 @@ function SketchyList({
       <div className="product">
         <li key={sketchy.id} className="card">
           <img className="product-img" src={sketchy.pic_url} />
-          <h3>{sketchy.name}</h3>
-          <h5>{sketchy.dec}</h5>
+          <h3>{sketchy.pro_name}</h3>
+          <h5>{sketchy.descr}</h5>
           <div>${sketchy.price}</div>
           <button
             onClick={() => {
-              TotalPrice(sketchy.price, sketchy.name);
-              addItemToCart();
+              TotalPrice(sketchy.price, sketchy.pro_name);
             }}
           >
             Add to cart
@@ -46,17 +54,8 @@ function SketchyList({
         </li>
       </div>
     ));
-  function addItemToCart() {
-    localStorage.setItem(
-      "addToCart",
-      JSON.stringify({
-        arrayOfPrices: array,
-        totalPrice: totalPrice,
-      })
-    );
-  }
   function TotalPrice(sketchyPrice, sketchyName) {
-    setTotalPrice((prevState) => (prevState += sketchyPrice));
+    setTotalPrice((prevState) => (prevState += +sketchyPrice));
 
     setArray((prevState) => {
       return prevState.concat([sketchyName + ": $" + sketchyPrice + "   "]);
