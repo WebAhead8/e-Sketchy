@@ -1,7 +1,9 @@
 import React from "react";
-import sketches from "../data";
 import "../style/Store.css";
 import "../style/Filters.css";
+import getData from "../utils/fetchBackend";
+
+const API_BASE = "http://localhost:4000";
 function SketchyList({
   setArray,
   setTotalPrice,
@@ -11,8 +13,19 @@ function SketchyList({
   totalPrice,
 }) {
   const [minPrice, maxPrice] = priceFilter;
+  const [prodData, setProdData] = React.useState(null);
 
-  const sketchyItems = sketches
+  React.useEffect(() => {
+    const url = `http://localhost:4000/products`;
+    getData(url).then((data) => {
+      setProdData(data);
+    });
+  }, []);
+  if (!prodData) {
+    return <h3>...Loading</h3>;
+  }
+
+  const sketchyItems = prodData
     .filter((sketchy) => catFilter === "all" || catFilter === sketchy.category)
     .filter((sketchy) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
     .map((sketchy) => (
