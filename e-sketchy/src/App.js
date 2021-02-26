@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CheckoutForm from "./components/CheckoutForm";
 import Home from "./Pages/Home";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
       <Route path="/about" exact component={AboutPage} />
       <Route path="/store" exact component={Store} />
       <Route path="/checkout" exact component={CheckoutForm} />
+      <Route path="/signup" exact component={SignUp} />
+
       <Footer />
     </Router>
   );
