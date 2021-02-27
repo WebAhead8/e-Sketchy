@@ -1,5 +1,5 @@
 # e-Sketchy
-Digital & Traditional Art E-Commerce Store. All what the artist need in one place.
+Digital & Traditional Art E-Commerce Store. All what the artist need in one place
 
     FRONTEND PROJECT
 
