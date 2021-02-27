@@ -3,7 +3,6 @@ import "../style/Store.css";
 import "../style/Filters.css";
 import getData from "../utils/fetchBackend";
 
-const API_BASE = "http://localhost:4000";
 function SketchyList({
   setArray,
   setTotalPrice,
@@ -56,7 +55,7 @@ function SketchyList({
     );
   }
   function TotalPrice(sketchyPrice, sketchyName) {
-    setTotalPrice((prevState) => (prevState += sketchyPrice));
+    setTotalPrice((prevState) => (prevState += +sketchyPrice));
 
     setArray((prevState) => {
       return prevState.concat([sketchyName + ": $" + sketchyPrice + "   "]);

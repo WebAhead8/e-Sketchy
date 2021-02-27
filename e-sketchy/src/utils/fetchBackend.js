@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const checkResponse = (response) => {
   if (response.status !== 200) {
     console.log(`Error with the request! ${response.status}`);
