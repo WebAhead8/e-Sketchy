@@ -32,12 +32,6 @@ function SignUp() {
       });
   };
   function handelClick() {
-    setSignup({
-      username: signup.username,
-      email: signup.email,
-      user_pass: signup.user_pass,
-      loc: signup.loc,
-    });
     postUsers(url, signup);
   }
 
