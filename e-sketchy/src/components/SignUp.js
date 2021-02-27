@@ -1,23 +1,44 @@
 import React from "react";
 import "../style/Form.css";
-const API_BASE = "http://localhost:4000";
 
 function SignUp() {
   const [signup, setSignup] = React.useState({
     username: "",
     email: " ",
-    password: "",
-    location: "",
+    user_pass: "",
+    loc: "",
   });
+  const url = `http://localhost:4000/users`;
 
-  function handelChange(e) {
-    const { name, value } = e.target;
-    setSignup((prevValue) => {
-      return {
-        ...prevValue,
-        [name]: value,
-      };
+  const checkResponse = (response) => {
+    if (response.status !== 201) {
+      console.log(`Error with the request! ${response.status}`);
+      return;
+    }
+    return response.json();
+  };
+
+  const postUsers = (url, signup) => {
+    return fetch(url, {
+      method: "POST",
+      body: JSON.stringify(signup),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then(checkResponse)
+      .catch((err) => {
+        throw new Error(`fetch getData failed ${err}`);
+      });
+  };
+  function handelClick() {
+    setSignup({
+      username: signup.username,
+      email: signup.email,
+      user_pass: signup.password,
+      loc: signup.location,
     });
+    postUsers(url, signup);
   }
 
   return (
@@ -28,41 +49,26 @@ function SignUp() {
         <input
           type="text"
           placeholder="username"
-          name="username"
           value={signup.username}
-          onChange={handelChange}
+          name="username"
           required
         />
         <label>Email :</label>
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={signup.email}
-          onChange={handelChange}
-          required
-        />
+        <input type="email" placeholder="Email" name="email" required />
         <label>Password :</label>
         <input
           type="password"
           placeholder="Password"
           name="password"
-          onChange={handelChange}
-          value={signup.password}
           required
         />
         <label>Confirm Password :</label>
         <input type="password" placeholder="Confirm Password" required />
         <label>Location :</label>
-        <input
-          type="text"
-          placeholder="Location"
-          name="location"
-          value={signup.location}
-          onChange={handelChange}
-          required
-        />
-        <button type="submit">Submit</button>
+        <input type="text" placeholder="Location" name="location" required />
+        <button type="submit" onClick={handelClick}>
+          Submit
+        </button>
       </form>
     </div>
   );
