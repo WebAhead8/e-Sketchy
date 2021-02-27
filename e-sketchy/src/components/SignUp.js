@@ -5,7 +5,7 @@ function SignUp() {
   const [signup, setSignup] = React.useState({
     username: "",
     email: " ",
-    user_pass: "",
+    pass: "",
     loc: "",
   });
   const url = `http://localhost:4000/users`;
@@ -35,8 +35,8 @@ function SignUp() {
     setSignup({
       username: signup.username,
       email: signup.email,
-      user_pass: signup.password,
-      loc: signup.location,
+      password: signup.pass,
+      loc: signup.loc,
     });
     postUsers(url, signup);
   }
@@ -72,16 +72,22 @@ function SignUp() {
           required
         />
         <label>Password :</label>
+        <input type="password" placeholder="Password" name="pass" required />
+        <label>Confirm Password :</label>
         <input
           type="password"
-          placeholder="Password"
-          name="password"
+          placeholder="Confirm Password"
+          onChange={handelChange}
           required
         />
-        <label>Confirm Password :</label>
-        <input type="password" placeholder="Confirm Password" required />
         <label>Location :</label>
-        <input type="text" placeholder="Location" name="location" required />
+        <input
+          type="text"
+          placeholder="Location"
+          name="loc"
+          onChange={handelChange}
+          required
+        />
         <button type="submit" onClick={handelClick}>
           Submit
         </button>
