@@ -1,14 +1,29 @@
 require("dotenv").config();
 
-export const addUser = (data) => {
-  return fetch(`${process.env.REACT_APP_BACKEND_URL}adduser`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(data),
-  }).then((promise) => {
-    return promise.json();
-  });
+const url = `http://localhost:4000/users`;
+const checkResponse = (response) => {
+  if (response.status !== 201) {
+    console.log(`Error with the request! ${response.status}`);
+    return;
+  }
+  return response.json();
 };
+
+function postUsers(url, userData) {
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then(checkResponse)
+    .catch((err) => {
+      throw new Error(`fetch getData failed ${err}`);
+    });
+}
+postUsers(url, userData).then((data) => {
+  console.log(data);
+});
+
+export default postUsers;

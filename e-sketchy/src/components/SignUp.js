@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/Form.css";
+const API_BASE = "http://localhost:4000";
 
 function SignUp() {
   const [signup, setSignup] = React.useState({
@@ -18,6 +19,7 @@ function SignUp() {
       };
     });
   }
+
   return (
     <div className="cont">
       <form className="form">
@@ -65,4 +67,5 @@ function SignUp() {
     </div>
   );
 }
+
 export default SignUp;
