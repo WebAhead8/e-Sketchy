@@ -41,6 +41,16 @@ function SignUp() {
     postUsers(url, signup);
   }
 
+  function handelChange(event) {
+    const { name, value } = event.target;
+    setSignup((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
+  }
+
   return (
     <div className="cont">
       <form className="form">
@@ -49,12 +59,18 @@ function SignUp() {
         <input
           type="text"
           placeholder="username"
-          value={signup.username}
           name="username"
+          onChange={handelChange}
           required
         />
         <label>Email :</label>
-        <input type="email" placeholder="Email" name="email" required />
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={handelChange}
+          name="email"
+          required
+        />
         <label>Password :</label>
         <input
           type="password"
