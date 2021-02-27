@@ -8,10 +8,13 @@ import PriceFilter from "./PriceFilter";
 function Store() {
   const [catFilter, setCatFilter] = React.useState("all");
   const [priceFilter, setPriceFilter] = React.useState([9.99, 99.99]);
-  const [totalPrice, setTotalPrice] = React.useState(0);
-  console.log(JSON.parse(localStorage.getItem("addToCart")));
+
+  const [totalPrice, setTotalPrice] = React.useState(
+    JSON.parse(localStorage.getItem("addToCart"))?.totalPrice || 0
+  );
+
   const [array, setArray] = React.useState(
-    JSON.parse(localStorage.getItem("addToCart")).arrayOfPrices || []
+    JSON.parse(localStorage.getItem("addToCart"))?.arrayOfPrices || []
   );
 
   return (
