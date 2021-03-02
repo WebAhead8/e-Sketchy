@@ -51,6 +51,14 @@ function SketchyList({
           >
             Add to cart
           </button>
+
+          <button
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            Customres reviews
+          </button>
         </li>
       </div>
     ));
