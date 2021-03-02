@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/Form.css";
-import postUsers from "../utils/signUp.js";
+import postUsers from "../utils/signUpFetch.js";
 
 function SignUp() {
   const [signup, setSignup] = React.useState({
