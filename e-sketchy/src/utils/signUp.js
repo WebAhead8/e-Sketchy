@@ -9,7 +9,7 @@ const checkResponse = (response) => {
   return response.json();
 };
 
-function postUsers(url, userData) {
+function postUsers(userData) {
   return fetch(url, {
     method: "POST",
     body: JSON.stringify(userData),
@@ -22,7 +22,7 @@ function postUsers(url, userData) {
       throw new Error(`fetch getData failed ${err}`);
     });
 }
-postUsers(url, userData).then((data) => {
+postUsers(url).then((data) => {
   console.log(data);
 });
 

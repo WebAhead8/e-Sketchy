@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/Form.css";
+import postUsers from "../utils/signUp.js";
 
 function SignUp() {
   const [signup, setSignup] = React.useState({
@@ -8,31 +9,31 @@ function SignUp() {
     user_pass: "",
     loc: "",
   });
-  const url = `http://localhost:4000/users`;
+  // const url = `http://localhost:4000/users`;
 
-  const checkResponse = (response) => {
-    if (response.status !== 201) {
-      console.log(`Error with the request! ${response.status}`);
-      return;
-    }
-    return response.json();
-  };
+  // const checkResponse = (response) => {
+  //   if (response.status !== 201) {
+  //     console.log(`Error with the request! ${response.status}`);
+  //     return;
+  //   }
+  //   return response.json();
+  // };
 
-  const postUsers = (url, signup) => {
-    return fetch(url, {
-      method: "POST",
-      body: JSON.stringify(signup),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then(checkResponse)
-      .catch((err) => {
-        throw new Error(`fetch getData failed ${err}`);
-      });
-  };
+  // const postUsers = (url, signup) => {
+  //   return fetch(url, {
+  //     method: "POST",
+  //     body: JSON.stringify(signup),
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //   })
+  //     .then(checkResponse)
+  //     .catch((err) => {
+  //       throw new Error(`fetch getData failed ${err}`);
+  //     });
+  // };
   function handelClick() {
-    postUsers(url, signup);
+    postUsers(signup);
   }
 
   function handelChange(event) {
