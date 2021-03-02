@@ -84,6 +84,7 @@ function SignUp() {
           onChange={(e) => setLocation(e.target.value)}
           required
         />
+        <i> You already have an account? <a href="/login">Login</a></i>
         <button type="submit" onClick={signUpHandler}>
           Submit
         </button>
