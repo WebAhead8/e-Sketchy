@@ -54,7 +54,7 @@ function SketchyList({
 
           <button
             onClick={() => {
-              window.location.href = "/";
+              window.location.href = "/customerreview";
             }}
           >
             Customres reviews
