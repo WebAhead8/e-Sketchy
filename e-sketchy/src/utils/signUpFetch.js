@@ -22,8 +22,5 @@ function postUsers(userData) {
       throw new Error(`fetch getData failed ${err}`);
     });
 }
-postUsers(url).then((data) => {
-  console.log(data);
-});
 
 export default postUsers;

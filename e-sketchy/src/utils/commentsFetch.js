@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const url = `http://localhost:4000/customerreview`;
+const url = `http://localhost:4000/comment`;
 const checkResponse = (response) => {
   if (response.status !== 201) {
     console.log(`Error with the request! ${response.status}`);
@@ -8,11 +8,11 @@ const checkResponse = (response) => {
   }
   return response.json();
 };
-// ----------------------
-function postComment(addComment) {
+// // --------------------Get all the Comments function------>
+function getComments(getComments) {
   return fetch(url, {
-    method: "POST",
-    body: JSON.stringify(addComment),
+    method: "GET",
+    body: JSON.stringify({ getComments }),
     headers: {
       "Content-type": "application/json",
     },
@@ -22,8 +22,36 @@ function postComment(addComment) {
       throw new Error(`fetch getData failed ${err}`);
     });
 }
-postComment(url).then((data) => {
-  console.log(data);
-});
 
-export default postComment;
+// // --------------------Post Comments function------>
+function postComment(addComment) {
+  console.log(addComment);
+  return fetch(url, {
+    method: "POST",
+    body: JSON.stringify({ addComment }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then(checkResponse)
+    .catch((err) => {
+      throw new Error(`fetch getData failed ${err}`);
+    });
+}
+
+// --------------------Delete Comments function------>
+function DeleteComment(DeleteComment) {
+  return fetch(url, {
+    method: "DELETE",
+    body: JSON.stringify({ DeleteComment }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then(checkResponse)
+    .catch((err) => {
+      throw new Error(`fetch getData failed ${err}`);
+    });
+}
+
+module.exports = { getComments, postComment, DeleteComment };
