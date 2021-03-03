@@ -18,6 +18,9 @@ function Navbar() {
           <li>
             <a href="/about">About</a>
           </li>
+          <li>
+            <a href="/signup">Sign Up</a>
+          </li>
         </ul>
       </nav>
     </header>
