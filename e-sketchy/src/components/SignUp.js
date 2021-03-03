@@ -1,50 +1,28 @@
 import React from "react";
 import "../style/Form.css";
-
-// function thanksMsg() {
-//   alert("Thanks, You have been successfully signed in :)");
-// }
+import postUsers from "../utils/signUpFetch.js";
 
 function SignUp() {
-  function signUpHandler(event) {
-    // event.preventDefault();
-    const userData = {
-      username: username,
-      email: email,
-      user_pass: password,
-      loc: location,
-    };
+  const [signup, setSignup] = React.useState({
+    username: "",
+    email: " ",
+    user_pass: "",
+    loc: "",
+  });
 
-    postUsers(url, userData);
+  function handelClick() {
+    postUsers(signup);
   }
-  const checkResponse = (response) => {
-    if (response.status !== 201) {
-      console.log(`Error with the request! ${response.status}`);
-      return;
-    }
-    return response.json();
-  };
 
-  const postUsers = (url, userData) => {
-    return fetch(url, {
-      method: "POST",
-      body: JSON.stringify(userData),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then(checkResponse)
-      .catch((err) => {
-        throw new Error(`fetch getData failed ${err}`);
-      });
-  };
-
-  const [username, setUsername] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [location, setLocation] = React.useState("");
-  const url = `http://localhost:4000/users`;
-  //   console.log("email: ", email);
+  function handelChange(event) {
+    const { name, value } = event.target;
+    setSignup((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
+  }
 
   return (
     <div className="cont">
@@ -54,24 +32,24 @@ function SignUp() {
         <input
           type="text"
           placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          name="username"
+          onChange={handelChange}
           required
         />
         <label>Email :</label>
         <input
           type="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handelChange}
+          name="email"
           required
         />
         <label>Password :</label>
         <input
           type="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="user_pass"
+          onChange={handelChange}
           required
         />
         <label>Confirm Password :</label>
@@ -80,15 +58,20 @@ function SignUp() {
         <input
           type="text"
           placeholder="Location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          name="loc"
+          onChange={handelChange}
           required
         />
-        <button type="submit" onClick={signUpHandler}>
+        <i>
+          {" "}
+          You already have an account? <a href="/login">Login</a>
+        </i>
+        <button type="submit" onClick={handelClick}>
           Submit
         </button>
       </form>
     </div>
   );
 }
+
 export default SignUp;
