@@ -63,7 +63,7 @@ function SignUp() {
           onChange={handelChange}
           required
         />
-        <button type="submit">Submit</button>
+
       </form>
     </div>
   );
