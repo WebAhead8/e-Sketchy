@@ -1,6 +1,7 @@
 import React from "react";
 import "../style/Form.css";
 import postUsers from "../utils/signUpFetch.js";
+let output = "";
 
 function SignUp() {
   const [signup, setSignup] = React.useState({
@@ -8,13 +9,19 @@ function SignUp() {
     email: " ",
     user_pass: "",
     loc: "",
+    user_pass2: "",
   });
 
-  function handelsubmit(e) {
+  function handelClick(e) {
     e.preventDefault();
-    postUsers(signup);
-  }
 
+    if (signup.user_pass2 == signup.user_pass) {
+      output = "";
+      postUsers(signup);
+    } else {
+      output = "passord not match";
+    }
+  }
   function handelChange(event) {
     const { name, value } = event.target;
     setSignup((prevValue) => {
@@ -27,13 +34,15 @@ function SignUp() {
 
   return (
     <div className="cont">
-      <form className="form" onSubmit={handelsubmit}>
+      <form onSubmit={handelClick} className="form">
         <label> Sign Up</label>
         <label>Username :</label>
         <input
           type="text"
           placeholder="username"
           name="username"
+          minlength="3"
+          maxlength="20"
           onChange={handelChange}
           required
         />
@@ -51,10 +60,20 @@ function SignUp() {
           placeholder="Password"
           name="user_pass"
           onChange={handelChange}
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
           required
         />
+
         <label>Confirm Password :</label>
-        <input type="password" placeholder="Confirm Password" required />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          name="user_pass2"
+          onChange={handelChange}
+          required
+        />
+
         <label>Location :</label>
         <input
           type="text"
@@ -63,7 +82,8 @@ function SignUp() {
           onChange={handelChange}
           required
         />
-
+        <button type="submit">Submit</button>
+        <output>{output}</output>
       </form>
     </div>
   );
