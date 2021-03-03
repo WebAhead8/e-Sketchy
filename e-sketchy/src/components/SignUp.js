@@ -82,7 +82,10 @@ function SignUp() {
           onChange={handelChange}
           required
         />
-        <i> Already have an account? <a href="/login"> Login </a> </i>
+        <i>
+          {" "}
+          Already have an account? <a href="/login"> Login </a>{" "}
+        </i>
         <button type="submit">Submit</button>
         <output>{output}</output>
       </form>
