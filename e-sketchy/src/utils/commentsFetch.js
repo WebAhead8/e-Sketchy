@@ -9,10 +9,10 @@ const checkResponse = (response) => {
   return response.json();
 };
 // // --------------------Get all the Comments function------>
-function getComments(getComments) {
+function getComments(commentId) {
   return fetch(url, {
     method: "GET",
-    body: JSON.stringify({ getComments }),
+    body: JSON.stringify({ commentId }),
     headers: {
       "Content-type": "application/json",
     },
