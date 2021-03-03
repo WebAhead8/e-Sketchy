@@ -19,7 +19,6 @@ export function login(loginData) {
 }
 
 export function getUser(token) {
-  console.log("Sending token " + token)
   return request("http://localhost:4000/login/me", {
     headers: { authorization: `${token}` },
   });
