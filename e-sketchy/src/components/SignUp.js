@@ -10,7 +10,8 @@ function SignUp() {
     loc: "",
   });
 
-  function handelClick() {
+  function handelsubmit(e) {
+    e.preventDefault();
     postUsers(signup);
   }
 
@@ -26,7 +27,7 @@ function SignUp() {
 
   return (
     <div className="cont">
-      <form className="form">
+      <form className="form" onSubmit={handelsubmit}>
         <label> Sign Up</label>
         <label>Username :</label>
         <input
@@ -62,14 +63,7 @@ function SignUp() {
           onChange={handelChange}
           required
         />
-        <i>
-          {" "}
-          You already have an account? <a href="/login">Login</a>
-        </i>
-        <button type="submit" onClick={signUpHandler}></button>
-        <button type="submit" onClick={handelClick}>
-          Submit
-        </button>
+
       </form>
     </div>
   );
