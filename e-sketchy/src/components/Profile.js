@@ -1,7 +1,13 @@
 import React from "react";
 
-function profile({ user }) {
-  return <h1> {user}</h1>;
+function Profile({ user }) {
+  console.log("this is user " + user)
+  return (
+    <div>
+    <h1> {user.username}</h1>
+    <h2> {user.email}</h2>
+    </div>
+  ) ;
 }
 
-export default profile;
+export default Profile;

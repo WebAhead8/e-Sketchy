@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { login, getUser } from "../utils/fetchUsers";
+import Profile from "./Profile";
 
 function Login() {
   const [loginData, setLoginData] = useState({ email: "", user_pass: "" });
@@ -43,12 +44,7 @@ function Login() {
 
   if (isLoggedIn) {
     return (
-      <div>
-        <h1> Welcome Back! </h1>
-        <i> {loginData.email} </i>
-        <p> You can go shopping now! </p>
-        <button onClick={logout}>Log Out</button>
-      </div>
+      <Profile user={user} />
     );
   }
   return (
@@ -75,7 +71,7 @@ function Login() {
         />
         <i>
           {" "}
-          Don't have an account? <a href="/signin">Sign Up</a>
+          Don't have an account? <a href="/signup">Sign Up</a>
         </i>
         <button type="submit">Login</button>
       </form>

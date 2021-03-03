@@ -20,8 +20,7 @@ export function login(loginData) {
 
 export function getUser(token) {
   return request("http://localhost:4000/login/me", {
-    method: "POST",
-    headers: { authorization: `Bearer ${token}` },
+    headers: { authorization: `${token}` },
   });
 }
 

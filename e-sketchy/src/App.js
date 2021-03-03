@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CheckoutForm from "./components/CheckoutForm";
 import Home from "./Pages/Home";
+import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import CustomerReview from "./components/CustomerReview";
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="/store" exact component={Store} />
       <Route path="/checkout" exact component={CheckoutForm} />
       <Route path="/signup" exact component={SignUp} />
+      <Route path="/login" exact component={Login} />
       <Route path="/customerreview" exact component={CustomerReview} />
 
       <Footer />
