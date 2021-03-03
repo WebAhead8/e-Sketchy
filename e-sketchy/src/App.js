@@ -27,6 +27,7 @@ function App() {
       <Route path="/customerreview" exact component={CustomerReview} />
     <Route path="/profile" exact component={Profile} />
     <Route path="/products" exact component={ProductsPanel} />
+      <Route path="/customerreview/:id" exact component={CustomerReview} />
 
       <Footer />
     </Router>

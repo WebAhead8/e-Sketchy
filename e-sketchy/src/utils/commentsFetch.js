@@ -9,10 +9,10 @@ const checkResponse = (response) => {
   return response.json();
 };
 // // --------------------Get all the Comments function------>
-function getComments(getComments) {
+function getComments(commentId) {
   return fetch(url, {
     method: "GET",
-    body: JSON.stringify({ getComments }),
+    body: JSON.stringify({ commentId }),
     headers: {
       "Content-type": "application/json",
     },
@@ -24,13 +24,20 @@ function getComments(getComments) {
 }
 
 // // --------------------Post Comments function------>
-function postComment(addComment) {
+function postComment(addComment, token, productId) {
+  console.log("mmmmm", token);
   console.log(addComment);
   return fetch(url, {
     method: "POST",
-    body: JSON.stringify({ addComment }),
+    // cmm.comment, cmm.user_id, cmm.prod_id
+    body: JSON.stringify({
+      comment: addComment,
+      user_id: 4,
+      prod_id: productId,
+    }),
     headers: {
       "Content-type": "application/json",
+      authorization: `${token}`,
     },
   })
     .then(checkResponse)
@@ -54,4 +61,4 @@ function DeleteComment(DeleteComment) {
     });
 }
 
-module.exports = { getComments, postComment, DeleteComment };
+export default { getComments, postComment, DeleteComment };
