@@ -1,17 +1,21 @@
 import React from "react";
 import "../style/Form.css";
-import postComment from "../utils/commentsFetch.js";
+import commentsFetch from "../utils/commentsFetch.js";
 import DeleteComment from "../utils/commentsFetch.js";
 import GetComments from "../utils/commentsFetch.js";
+import { useParams } from "react-router-dom";
 
 function HandelComments() {
   const [commentData, setComment] = React.useState("");
+  const params = useParams();
+  console.log(params);
 
   function HandelChangeAdding(event) {
     setComment(event.target.value);
   }
   function HandelClickAdd() {
-    postComment(commentData); //should take the product id + user id
+    const token = window.localStorage.getItem("access_token");
+    commentsFetch.postComment(commentData, token, params.id); //should take the product id + user id
   }
 
   function HandelClickDelete() {
@@ -33,8 +37,6 @@ function HandelComments() {
         Submit
       </button>
       <output>
-        {commentData + GetComments}
-
         <button name="delete" onClick={HandelClickDelete}>
           Delete My Comment
         </button>

@@ -21,7 +21,7 @@ function App() {
       <Route path="/checkout" exact component={CheckoutForm} />
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={Login} />
-      <Route path="/customerreview" exact component={CustomerReview} />
+      <Route path="/customerreview/:id" exact component={CustomerReview} />
 
       <Footer />
     </Router>
