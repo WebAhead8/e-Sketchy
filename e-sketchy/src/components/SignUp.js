@@ -18,10 +18,10 @@ function SignUp() {
     if (signup.user_pass2 == signup.user_pass) {
       output = "";
       postUsers(signup);
-      alert("Thanks for joining")
+      alert("Thanks for joining");
       window.location.href = "/login";
     } else {
-      output = "passord not match";
+      output = "password not match";
     }
   }
   function handelChange(event) {
