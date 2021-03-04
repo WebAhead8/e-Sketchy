@@ -33,29 +33,32 @@ function HandelComments() {
   }, []);
 
   return (
-    <div>
-      <label> my review</label>
-      <input
-        type="text"
-        placeholder="insert review here"
-        onChange={HandelChangeAdding}
-        value={commentData}
-        required
-      ></input>
+    <div className="comments">
+      <label> Product Reviews </label>
+      <div className="comm-sec">
+        <ul className="com">
+          {userNameData.map((data) => (
+            <li className="sin-com">
+              {data.username}:{data.comment}
+            </li>
+          ))}
+        </ul>
+        <input
+          type="text"
+          placeholder="insert review here"
+          onChange={HandelChangeAdding}
+          value={commentData}
+          required
+        ></input>
 
-      <button type="submit" onClick={HandelClickAdd}>
-        Submit
-      </button>
-      <ul>
-        {userNameData.map((data) => (
-          <li>
-            {data.username}:{data.comment}
-          </li>
-        ))}
-      </ul>
-      <button name="delete" onClick={HandelClickDelete}>
+        <button type="submit" onClick={HandelClickAdd}>
+          Submit
+        </button>
+      </div>
+
+      {/* <button name="delete" onClick={HandelClickDelete}>
         Delete My Comment
-      </button>
+      </button> */}
     </div>
   );
 }
