@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { login, getUser } from "../utils/fetchUsers";
 import Profile from "./Profile";
-import { Redirect,Switch } from "react-router-dom";
-
-
-
-
+import { Redirect, Switch } from "react-router-dom";
 
 function Login() {
   const [loginData, setLoginData] = useState({ email: "", user_pass: "" });
   const [user, setUser] = useState({});
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const onChange = (stateKey) => ({ target }) =>
     setLoginData({ ...loginData, [stateKey]: target.value });
 
@@ -20,19 +16,20 @@ function Login() {
     login(loginData).then((data) => {
       localStorage.setItem("access_token", data.access_token);
       localStorage.setItem("username", data.user);
-      console.log("ccccccccc ", data)
+
       setUser(data);
       setIsLoggedIn(true);
     });
   };
-  
+
   useEffect(() => {
     const token = window.localStorage.getItem("access_token");
+
     console.log("token ", token);
     if (token) {
       getUser(token)
-      .then((data) => {
-        console.log("The other data : ", data);
+        .then((data) => {
+          console.log("The other data : ", data);
           setUser(data);
           setIsLoggedIn(true);
         })
@@ -55,7 +52,6 @@ function Login() {
       <Switch>
         <Profile user={user} />
       </Switch>
-      
     );
   }
   return (

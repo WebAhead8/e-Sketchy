@@ -25,14 +25,12 @@ function getComments(commentId) {
 
 // // --------------------Post Comments function------>
 function postComment(addComment, token, productId) {
-  console.log("mmmmm", token);
-  console.log(addComment);
   return fetch(url, {
     method: "POST",
     // cmm.comment, cmm.user_id, cmm.prod_id
     body: JSON.stringify({
       comment: addComment,
-      user_id: 4,
+      // user_id: 4,
       prod_id: productId,
     }),
     headers: {
