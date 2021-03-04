@@ -17,6 +17,7 @@ function AddProducts() {
     e.preventDefault();
     addProduc(addProd);
     console.log("Added ", addProd);
+    alert("Product Added Successfully");
   }
 
   function setValues(event) {
