@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../style/Form.css";
 import postUsers from "../utils/signUpFetch.js";
-let output = "";
 
 function SignUp() {
   const [signup, setSignup] = React.useState({
@@ -11,17 +10,18 @@ function SignUp() {
     loc: "",
     user_pass2: "",
   });
+  const [worrning, setWorrning] = React.useState("");
 
   function handelClick(e) {
     e.preventDefault();
 
     if (signup.user_pass2 == signup.user_pass) {
-      output = "";
+      setWorrning("");
       postUsers(signup);
-      alert("Thanks for joining")
+      alert("Thanks for joining");
       window.location.href = "/login";
     } else {
-      output = "passord not match";
+      setWorrning("passord not match");
     }
   }
   function handelChange(event) {
@@ -84,12 +84,12 @@ function SignUp() {
           onChange={handelChange}
           required
         />
-        <i>
+        <i className="toto">
           {" "}
           Already have an account? <a href="/login"> Login </a>{" "}
         </i>
+        <output className="error">{worrning}</output>
         <button type="submit">Submit</button>
-        <output>{output}</output>
       </form>
     </div>
   );
