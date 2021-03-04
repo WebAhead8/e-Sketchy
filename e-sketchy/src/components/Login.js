@@ -13,6 +13,16 @@ function Login() {
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+
+    login(loginData).then((data) => {
+      localStorage.setItem("access_token", data.access_token);
+      localStorage.setItem("username", data.user);
+
+      setUser(data);
+      setIsLoggedIn(true);
+    });
+
     if (loginData.email && loginData.user_pass) {
       login(loginData).then((data) => {
         localStorage.setItem("access_token", data.access_token);
@@ -23,10 +33,12 @@ function Login() {
     } else {
       setWorrning("Empty fields are not allowed");
     }
+
   };
 
   useEffect(() => {
     const token = window.localStorage.getItem("access_token");
+
     console.log("token ", token);
     if (token) {
       getUser(token)
