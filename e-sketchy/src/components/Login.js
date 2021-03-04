@@ -4,6 +4,7 @@ import Profile from "./Profile";
 import { Redirect, Switch } from "react-router-dom";
 
 function Login() {
+  const [worrning, setWorrning] = useState("");
   const [loginData, setLoginData] = useState({ email: "", user_pass: "" });
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,6 +14,7 @@ function Login() {
   const onSubmit = (event) => {
     event.preventDefault();
 
+
     login(loginData).then((data) => {
       localStorage.setItem("access_token", data.access_token);
       localStorage.setItem("username", data.user);
@@ -20,6 +22,18 @@ function Login() {
       setUser(data);
       setIsLoggedIn(true);
     });
+
+    if (loginData.email && loginData.user_pass) {
+      login(loginData).then((data) => {
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("username", data.user);
+        setUser(data);
+        setIsLoggedIn(true);
+      });
+    } else {
+      setWorrning("Empty fields are not allowed");
+    }
+
   };
 
   useEffect(() => {
@@ -76,10 +90,11 @@ function Login() {
           onChange={onChange("user_pass")}
           value={loginData.user_pass}
         />
-        <i>
+        <i className="toto">
           {" "}
           Don't have an account? <a href="/signup">Sign Up</a>
         </i>
+        <i className="error">{worrning}</i>
         <button type="submit">Login</button>
       </form>
     </div>
