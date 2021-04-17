@@ -1,6 +1,13 @@
 require("dotenv").config();
+let serverUrl;
 
-const url = `http://localhost:4000/products`;
+if (process.env.NODE_ENV === "production") {
+  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
+} else {
+  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
+}
+
+const url = `/products`;
 
 const checkResponse = (response) => {
   if (response.status !== 201) {
@@ -11,7 +18,7 @@ const checkResponse = (response) => {
 };
 
 function addProduc(prodData) {
-  return fetch(url, {
+  return fetch(`${serverUrl}${url}`, {
     method: "POST",
     body: JSON.stringify(prodData),
     headers: {

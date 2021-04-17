@@ -3,7 +3,6 @@ import "../style/Store.css";
 import "../style/Filters.css";
 import getData from "../utils/fetchBackend";
 
-const API_BASE = "http://localhost:4000";
 function SketchyList({
   setArray,
   setTotalPrice,
@@ -25,7 +24,7 @@ function SketchyList({
     );
   }, [array, totalPrice]);
   React.useEffect(() => {
-    const url = `http://localhost:4000/products`;
+    const url = `/products`;
     getData(url).then((data) => {
       setProdData(data);
     });
@@ -38,9 +37,9 @@ function SketchyList({
     .filter((sketchy) => catFilter === "all" || catFilter === sketchy.category)
     .filter((sketchy) => sketchy.price >= minPrice && sketchy.price <= maxPrice)
     .map((sketchy) => (
-      <div className="product">
-        <li key={sketchy.id} className="card">
-          <img className="product-img" src={sketchy.pic_url} />
+      <div className='product'>
+        <li key={sketchy.id} className='card'>
+          <img className='product-img' src={sketchy.pic_url} />
           <h3>{sketchy.pro_name}</h3>
           <h5>{sketchy.descr}</h5>
           <div>${sketchy.price}</div>
@@ -70,11 +69,11 @@ function SketchyList({
     });
   }
   return (
-    <ul className="grid">
+    <ul className='grid'>
       {sketchyItems.length ? (
         sketchyItems
       ) : (
-        <li className="card">No results found</li>
+        <li className='card'>No results found</li>
       )}
     </ul>
   );

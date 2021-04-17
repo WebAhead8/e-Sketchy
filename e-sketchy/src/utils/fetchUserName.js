@@ -1,3 +1,11 @@
+let serverUrl;
+
+if (process.env.NODE_ENV === "production") {
+  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
+} else {
+  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
+}
+
 const checkResponse = (response) => {
   if (response.status !== 200) {
     console.log(`Error with the request! ${response.status}`);
@@ -7,7 +15,7 @@ const checkResponse = (response) => {
 };
 
 function getUserName(prod_id) {
-  return fetch(`http://localhost:4000/comments/${prod_id}`)
+  return fetch(`${serverUrl}/comments/${prod_id}`)
     .then(checkResponse)
     .catch((err) => {
       throw new Error(`fetch getData failed ${err}`);

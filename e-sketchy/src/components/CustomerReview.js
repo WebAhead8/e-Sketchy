@@ -39,7 +39,7 @@ function HandelComments() {
         <ul className="com">
           {userNameData.map((data) => (
             <li className="sin-com">
-              {data.username}:{data.comment}
+              {data.username} : {data.comment}
             </li>
           ))}
         </ul>

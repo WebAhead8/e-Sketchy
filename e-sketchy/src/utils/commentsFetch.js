@@ -1,6 +1,13 @@
 require("dotenv").config();
+let serverUrl;
 
-const url = `http://localhost:4000/comment`;
+if (process.env.NODE_ENV === "production") {
+  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
+} else {
+  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
+}
+
+const url = `/comment`;
 const checkResponse = (response) => {
   if (response.status !== 201) {
     console.log(`Error with the request! ${response.status}`);
@@ -9,8 +16,9 @@ const checkResponse = (response) => {
   return response.json();
 };
 // // --------------------Get all the Comments function------>
+//
 function getComments(commentId) {
-  return fetch(url, {
+  return fetch(`${serverUrl}${url}`, {
     method: "GET",
     body: JSON.stringify({ commentId }),
     headers: {
@@ -25,7 +33,7 @@ function getComments(commentId) {
 
 // // --------------------Post Comments function------>
 function postComment(addComment, token, productId) {
-  return fetch(url, {
+  return fetch(`${serverUrl}${url}`, {
     method: "POST",
     // cmm.comment, cmm.user_id, cmm.prod_id
     body: JSON.stringify({
@@ -46,7 +54,7 @@ function postComment(addComment, token, productId) {
 
 // --------------------Delete Comments function------>
 function DeleteComment(DeleteComment) {
-  return fetch(url, {
+  return fetch(`${serverUrl}${url}`, {
     method: "DELETE",
     body: JSON.stringify({ DeleteComment }),
     headers: {

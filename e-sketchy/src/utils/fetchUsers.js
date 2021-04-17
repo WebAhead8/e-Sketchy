@@ -1,3 +1,11 @@
+let serverUrl;
+
+if (process.env.NODE_ENV === "production") {
+  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
+} else {
+  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
+}
+
 function request(url, options) {
   return fetch(url, options).then((response) => {
     if (!response.ok) {
@@ -11,7 +19,7 @@ function request(url, options) {
 }
 
 export function login(loginData) {
-  return request("http://localhost:4000/login", {
+  return request(`${serverUrl}/login`, {
     method: "POST",
     body: JSON.stringify(loginData),
     headers: { "content-type": "application/json" },
@@ -19,7 +27,7 @@ export function login(loginData) {
 }
 
 export function getUser(token) {
-  return request("http://localhost:4000/login/me", {
+  return request(`${serverUrl}/login/me`, {
     headers: { authorization: `${token}` },
   });
 }
