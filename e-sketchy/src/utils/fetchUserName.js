@@ -1,10 +1,4 @@
-let serverUrl;
-
-if (process.env.NODE_ENV === "production") {
-  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
-} else {
-  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
-}
+let serverUrl = process.env.REACT_APP_SERVER_URL;
 
 const checkResponse = (response) => {
   if (response.status !== 200) {

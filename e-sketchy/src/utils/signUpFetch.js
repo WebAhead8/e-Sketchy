@@ -1,11 +1,6 @@
 require("dotenv").config();
-let serverUrl;
+let serverUrl = process.env.REACT_APP_SERVER_URL;
 
-if (process.env.NODE_ENV === "production") {
-  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
-} else {
-  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
-}
 const url = `/users`;
 const checkResponse = (response) => {
   if (response.status !== 201) {

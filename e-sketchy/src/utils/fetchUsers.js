@@ -1,10 +1,4 @@
-let serverUrl;
-
-if (process.env.NODE_ENV === "production") {
-  serverUrl = process.env.REACT_APP_SERVER_URL_PRODUCTION;
-} else {
-  serverUrl = process.env.REACT_APP_SERVER_URL_DEV;
-}
+let serverUrl = process.env.REACT_APP_SERVER_URL;
 
 function request(url, options) {
   return fetch(url, options).then((response) => {
